@@ -39,7 +39,9 @@ int main(){
     } catch (Warrior::BadFileFormatException exception) {
         cout << "Bad file structure: " << exception.filename << endl;
         return 2;
+    } catch (Inventory::WrongIndexException exception) {
+        cout<<"Wrong index"<<endl
     }
     
-    //github test   
+    
 }

@@ -25,4 +25,15 @@ void Inventory::put(const Sword& sword) {
 	swords = new InventoryItem{ sword, swords };
 }
 
-Sword Inventory::drop(int index) { return Sword(0, 0, 0); }
+Sword Inventory::drop(int index) {
+	if (index < 0 || index >= count()) throw WrongIndexException();  //checkindexnel hagytam abba 17. vidi
+	if (index == 0) {
+		swords = swords->next;
+		return Sword(0, 0, 0);
+	}
+	--index;
+	InventoryItem* tmp;
+	for (tmp = swords; index != 0; --index) tmp = tmp->next;
+	tmp->next = tmp->next->next;
+	return Sword(0, 0, 0);
+}
