@@ -40,7 +40,7 @@ int main(){
         cout << "Bad file structure: " << exception.filename << endl;
         return 2;
     } catch (Inventory::WrongIndexException exception) {
-        cout<<"Wrong index"<<endl
+        cout<<"Wrong index"<<endl;
     }
     
     
